@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1067035259172",
+    "project_id": "pureenergy-e526c",
+    "storage_bucket": "pureenergy-e526c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1067035259172:android:24a8a0ef489300dfd643b1",
+        "android_client_info": {
+          "package_name": "br.com.fiap.pureenergy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCD-6jHjrDmrM5JA4v00uUNWq5yW6e78ho"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
