@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="66dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/background_arrow"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_arrow_back_24" />
+
+    <TextView
+        android:id="@+id/id_text_login"
+        android:layout_width="176dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="140dp"
+        android:text="Login"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="#000000"
+        android:textDirection="ltr"
+        android:textIsSelectable="true"
+        android:textSize="60sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/id_tela_login_usuario"
+        android:layout_width="340dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/rounded_input"
+        android:elevation="10dp"
+        android:gravity="center"
+        android:hint="E-mail"
+        android:padding="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id_text_login" />
+
+    <EditText
+        android:id="@+id/editTextTextPassword2"
+        android:layout_width="340dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_input"
+        android:elevation="10dp"
+        android:gravity="center"
+        android:hint="Senha"
+        android:inputType="textPassword"
+        android:padding="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id_tela_login_usuario" />
+
+    <Button
+        android:id="@+id/id_btn_tela_login_entar"
+        android:layout_width="184dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="@color/light_green"
+        android:text="Entrar"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
+
+
+    <TextView
+        android:id="@+id/text_nao_possui_conta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="Não possui conta? "
+        android:textColor="@android:color/darker_gray"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.334"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id_btn_tela_login_entar"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/id_text_cadastrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:layout_toRightOf="@id/text_nao_possui_conta"
+        android:text="Cadastre-se"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/text_nao_possui_conta"
+        app:layout_constraintTop_toBottomOf="@+id/id_btn_tela_login_entar" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
