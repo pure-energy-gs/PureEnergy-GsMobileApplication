@@ -24,7 +24,8 @@
 
 ## Estrutura do Projeto
 
-**Link figma: https://www.figma.com/design/ZJkmWOORP62iR0d3RVUJZe/Untitled?node-id=0-3&node-type=frame&t=YJz8aLEKJ7pawXBW-0
+**Link Figma:** [Design no Figma](https://www.figma.com/design/ZJkmWOORP62iR0d3RVUJZe/Untitled?node-id=0-3&node-type=frame&t=YJz8aLEKJ7pawXBW-0)
+**Link Video** [Youtube](https://youtu.be/bfj2-8IdKEc)
 
 - **Fragments**:
   - `RegistrarComodoFragment.kt`: Responsável por registrar novos cômodos.
