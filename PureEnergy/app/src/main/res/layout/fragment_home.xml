@@ -152,23 +152,22 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewCards"
-        android:layout_width="409dp"
-        android:layout_height="195dp"
+        android:layout_width="397dp"
+        android:layout_height="191dp"
         android:layout_marginTop="16dp"
         android:padding="8dp"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_home"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tabLayout"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.018" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation_home"
-        android:layout_width="407dp"
-        android:layout_height="73dp"
+        android:layout_width="396dp"
+        android:layout_height="60dp"
         android:layout_gravity="bottom"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
