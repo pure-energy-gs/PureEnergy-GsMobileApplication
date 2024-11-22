@@ -2,6 +2,12 @@
 
 **Pure Energy** é um aplicativo Android desenvolvido para gerenciar cômodos e aparelhos eletrônicos de uma residência. O aplicativo oferece uma interface amigável para registrar e visualizar cômodos e aparelhos cadastrados, promovendo uma experiência intuitiva para seus usuários.
 
+## Alunos RM
+
+- **Keven Ike Pereira da Silva** - 553215  
+- **Vitor Cruz dos Santos** - 553621  
+- **José Ribeiro dos Santos Neto** - 553844  
+
 ## Funcionalidades
 
 - **Registrar Cômodo**: Adicione novos cômodos à sua residência.
@@ -18,6 +24,9 @@
 
 ## Estrutura do Projeto
 
+**Link Figma:** [Design no Figma](https://www.figma.com/design/ZJkmWOORP62iR0d3RVUJZe/Untitled?node-id=0-3&node-type=frame&t=YJz8aLEKJ7pawXBW-0)
+**Link Video** [Youtube](https://youtu.be/bfj2-8IdKEc)
+
 - **Fragments**:
   - `RegistrarComodoFragment.kt`: Responsável por registrar novos cômodos.
   - `RegistrarAparelhoFragment.kt`: Gerencia o registro de novos aparelhos eletrônicos.
@@ -30,4 +39,4 @@
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/pure-energy-gs/PureEnergy-GsMobileApplication.git
+   git clone https://github.com/seu-usuario/pure-energy.git
