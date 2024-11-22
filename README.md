@@ -25,7 +25,7 @@
 ## Estrutura do Projeto
 
 **Link Figma:** [Design no Figma](https://www.figma.com/design/ZJkmWOORP62iR0d3RVUJZe/Untitled?node-id=0-3&node-type=frame&t=YJz8aLEKJ7pawXBW-0)
-**Link Video** [Youtube](https://youtu.be/bfj2-8IdKEc)
+**Link Video** [Youtube](https://youtu.be/bfj2-8IdKEc) eu não tenho microfone
 
 - **Fragments**:
   - `RegistrarComodoFragment.kt`: Responsável por registrar novos cômodos.
@@ -39,4 +39,4 @@
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/pure-energy.git
+   git clone https://github.com/pure-energy-gs/PureEnergy-GsMobileApplication.git
