@@ -29,6 +29,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentHomeBinding.bind(view)
 
+
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance()
 
