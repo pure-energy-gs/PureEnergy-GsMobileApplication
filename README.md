@@ -39,4 +39,4 @@
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/pure-energy.git
+   git clone https://github.com/pure-energy-gs/PureEnergy-GsMobileApplication.git
