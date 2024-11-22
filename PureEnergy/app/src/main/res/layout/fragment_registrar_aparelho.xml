@@ -1,0 +1,135 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".RegistrarAparelhoFragment"
+    android:background="@color/white">
+
+    <!-- Botão de Voltar -->
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_margin="16dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="Voltar"
+        android:src="@drawable/arrow_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Título -->
+
+    <!-- Campo Nome do Aparelho -->
+
+    <TextView
+        android:id="@+id/textRegistrarAparelhoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Registrar aparelho"
+        android:textColor="@color/black"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBack" />
+
+    <EditText
+        android:id="@+id/inputNomeAparelho"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_edit_text_background"
+        android:hint="Nome do aparelho"
+        android:padding="12dp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textRegistrarAparelhoTitle" />
+
+    <!-- Campo Potência em Watts -->
+    <EditText
+        android:id="@+id/inputPotenciaAparelho"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="Potência em watts"
+        android:background="@drawable/rounded_edit_text_background"
+        android:padding="12dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="12dp"
+        android:inputType="number"
+        app:layout_constraintTop_toBottomOf="@id/inputNomeAparelho"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Campo Horas de Uso por Dia -->
+    <EditText
+        android:id="@+id/inputHorasUsoDia"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="Horas de uso por dia"
+        android:background="@drawable/rounded_edit_text_background"
+        android:padding="12dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="12dp"
+        android:inputType="number"
+        app:layout_constraintTop_toBottomOf="@id/inputPotenciaAparelho"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Campo Cômodo -->
+    <Spinner
+        android:id="@+id/inputComodo"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/rounded_edit_text_background"
+        android:padding="12dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@id/inputHorasUsoDia"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Campo Descrição -->
+    <EditText
+        android:id="@+id/inputDescricaoAparelho"
+        android:layout_width="match_parent"
+        android:layout_height="151dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/rounded_edit_text_background"
+        android:gravity="top"
+        android:hint="Informe aqui a utilidade do seu aparelho"
+        android:padding="12dp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/inputComodo" />
+
+    <!-- Botão Adicionar -->
+    <Button
+        android:id="@+id/btnAdicionarAparelho"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/light_green"
+        android:text="Adicionar Aparelho"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/inputDescricaoAparelho" />
+
+    <!-- Bottom Navigation View -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="398dp"
+        android:layout_height="72dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/home"
+        android:title="Início"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/nav_dashboard"
+        android:icon="@drawable/dashboard"
+        android:title="Dashboard"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/person"
+        android:title="Perfil"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/nav_register_room"
+        android:icon="@drawable/app_registration"
+        android:title="Registrar Cômodo"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/nav_register_device"
+        android:icon="@drawable/eltronicos"
+        android:title="Registrar Aparelho"
+        app:showAsAction="ifRoom" />
+</menu>
