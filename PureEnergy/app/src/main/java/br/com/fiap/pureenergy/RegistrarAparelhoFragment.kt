@@ -21,12 +21,13 @@ class RegistrarAparelhoFragment : Fragment(R.layout.fragment_registrar_aparelho)
     private val comodos = mutableListOf<Pair<String, String>>() // Armazenar ID e nome dos cômodos
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-        val bottomNavigationView = view.findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-        val btnBack = view.findViewById<View>(R.id.btnBack)
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentRegistrarAparelhoBinding.bind(view)
 
+        val bottomNavigationView = view.findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        val btnBack = view.findViewById<View>(R.id.btnBack)
+
+        // Configuração do botão voltar
         btnBack.setOnClickListener {
             findNavController().navigateUp()
         }
@@ -36,44 +37,49 @@ class RegistrarAparelhoFragment : Fragment(R.layout.fragment_registrar_aparelho)
 
         // Configurar botão para adicionar aparelho
         binding.btnAdicionarAparelho.setOnClickListener {
-
             val nomeAparelho = binding.inputNomeAparelho.text.toString().trim()
             val potencia = binding.inputPotenciaAparelho.text.toString().trim()
             val horasUso = binding.inputHorasUsoDia.text.toString().trim()
             val comodoSelecionado = binding.inputComodo.selectedItemPosition
 
-            if (nomeAparelho.isEmpty() || potencia.isEmpty() || horasUso.isEmpty() || comodoSelecionado == -1) {
-                Toast.makeText(requireContext(), "Preencha todos os campos", Toast.LENGTH_SHORT).show()
+            // Verificar campos obrigatórios
+            if (nomeAparelho.isEmpty() || potencia.isEmpty() || horasUso.isEmpty() || comodoSelecionado !in comodos.indices) {
+                Toast.makeText(requireContext(), "Preencha todos os campos corretamente", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             }
 
-
+            // Obter o ID do cômodo selecionado
             val comodoId = comodos[comodoSelecionado].first
 
+            // Criar objeto do aparelho
             val aparelho = Aparelho(
                 nomeAparelho = nomeAparelho,
-                potencia = potencia.toInt(),
-                horasUso = horasUso.toInt(),
-                descricao = "" // Descrição opcional
+                potencia = potencia.toIntOrNull() ?: 0,
+                horasUso = horasUso.toIntOrNull() ?: 0,
+                descricao = binding.inputDescricaoAparelho.text.toString().trim()
             )
 
-            val database = FirebaseDatabase.getInstance()
+            // Verificar usuário autenticado
             val userId = FirebaseAuth.getInstance().currentUser?.uid
             if (userId == null) {
                 Toast.makeText(requireContext(), "Usuário não autenticado", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             }
 
+            // Salvar no Firebase
+            val database = FirebaseDatabase.getInstance()
             val comodoRef = database.getReference("Comodos").child(comodoId).child("aparelhos")
             comodoRef.push().setValue(aparelho)
                 .addOnSuccessListener {
                     Toast.makeText(requireContext(), "Aparelho adicionado com sucesso", Toast.LENGTH_SHORT).show()
                 }
                 .addOnFailureListener { error ->
+                    Log.e("RegistrarAparelhoFragment", "Erro ao salvar aparelho: ${error.message}")
                     Toast.makeText(requireContext(), "Erro ao adicionar aparelho: ${error.message}", Toast.LENGTH_SHORT).show()
                 }
         }
 
-
-
+        // Configuração da barra de navegação
         bottomNavigationView.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.nav_home -> {
@@ -112,9 +118,15 @@ class RegistrarAparelhoFragment : Fragment(R.layout.fragment_registrar_aparelho)
                 }
 
                 // Atualizar o spinner com os nomes dos cômodos
-                val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, comodos.map { it.second })
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                binding.inputComodo.adapter = adapter
+                if (_binding != null) {
+                    val adapter = ArrayAdapter(
+                        requireContext(),
+                        android.R.layout.simple_spinner_item,
+                        comodos.map { it.second }
+                    )
+                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                    binding.inputComodo.adapter = adapter
+                }
             }
 
             override fun onCancelled(error: com.google.firebase.database.DatabaseError) {

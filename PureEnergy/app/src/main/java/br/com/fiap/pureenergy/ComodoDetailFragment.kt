@@ -17,6 +17,9 @@ class ComodoDetailFragment : Fragment(R.layout.fragment_comodo_detail) {
     private lateinit var comodoId: String
     private val aparelhos = mutableListOf<Aparelho>()
 
+    private lateinit var comodoRef: DatabaseReference
+    private var valueEventListener: ValueEventListener? = null
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentComodoDetailBinding.bind(view)
@@ -40,10 +43,14 @@ class ComodoDetailFragment : Fragment(R.layout.fragment_comodo_detail) {
             return
         }
 
-        val comodoRef = firebaseDatabase.getReference("Comodos").child(comodoId)
-
-        comodoRef.addValueEventListener(object : ValueEventListener {
+        comodoRef = firebaseDatabase.getReference("Comodos").child(comodoId)
+        valueEventListener = object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
+                if (_binding == null) {
+                    Log.e("ComodoDetailFragment", "Binding está nulo. Ignorando atualização.")
+                    return
+                }
+
                 val nomeComodo = snapshot.child("nomeComodo").getValue(String::class.java) ?: "Sem Nome"
                 val aparelhosSnapshot = snapshot.child("aparelhos")
 
@@ -64,11 +71,19 @@ class ComodoDetailFragment : Fragment(R.layout.fragment_comodo_detail) {
             override fun onCancelled(error: DatabaseError) {
                 Log.e("ComodoDetailFragment", "Erro ao carregar os dados do cômodo: ${error.message}")
             }
-        })
+        }
+        comodoRef.addValueEventListener(valueEventListener!!)
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
+        Log.d("ComodoDetailFragment", "onDestroyView chamado. Limpando binding e listener.")
         _binding = null
+
+        // Remover o listener do Firebase
+        valueEventListener?.let {
+            comodoRef.removeEventListener(it)
+        }
+        valueEventListener = null
     }
 }
